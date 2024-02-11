@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Preferences</h1>
+
+<div id="preferences">
+  <% @preferences.each do |preference| %>
+    <%= render preference %>
+    <p>
+      <%= link_to "Show this preference", preference %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New preference", new_preference_path %>
