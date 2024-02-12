@@ -42,6 +42,6 @@ say "You might want to take a look at #{file_name} and update it's `current_owne
 say "" if create_example_preference
 say "You can also change the base controller that preflex uses if warranted. Take a look at config/initializers/preflex.rb"
 say ""
-say "If you'd like to easily read and write preferences from the client side, just add `Preflex::PreferencesHelper.script_tag(UserPreference)` to the head tag in your layout file (e.g app/views/layouts/application.html.erb) and read the docs at https://github.com/owaiswiz/preflex"
+say "If you'd like to easily read and write preferences from the client side, just add `Preflex::PreferencesHelper.script_tag(*AllThePreferenceClassesYouHave)` (e.g `Preflex::PreferencesHelper.script_tag(UserPreference, CustomerSettings)`) to the head tag in your layout file (e.g app/views/layouts/application.html.erb) and read the docs at https://github.com/owaiswiz/preflex"
 
 def run_bundle; end;
