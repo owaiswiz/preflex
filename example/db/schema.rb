@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_11_191328) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_12_145154) do
   create_table "preflex_preferences", force: :cascade do |t|
     t.string "type"
     t.string "owner", limit: 500
+    t.text "data", limit: 16777215
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type", "owner"], name: "index_preflex_preferences_on_type_and_owner"
