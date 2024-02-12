@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    preflex (0.3.0)
+    preflex (0.4.0)
       rails (>= 6.1)
       store_attribute (>= 1.1.0)
 
