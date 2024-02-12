@@ -1,3 +1,3 @@
 Preflex::Engine.routes.draw do
-  resources :preferences
+  post 'preferences' => 'preferences#update', as: :preferences
 end

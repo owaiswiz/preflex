@@ -7,6 +7,8 @@ module Preflex
       return ''.html_safe if preference_klasses.empty?
 
       base = <<~JS
+        const CSRF_TOKEN = "#{Preflex::Current.controller_instance.send(:form_authenticity_token)}"
+        const UPDATE_PATH = "#{Preflex::Engine.routes.url_helpers.preferences_path}"
         class PreflexPreference {
           constructor(klass, data) {
             this.klass = klass
@@ -45,7 +47,14 @@ module Preflex
           }
 
           updateOnServer(name, value) {
-            console.log('lets updated on server boi', name, value)
+            fetch(UPDATE_PATH, {
+              method: 'POST',
+              headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": CSRF_TOKEN
+              },
+              body: JSON.stringify({ klass: this.klass, name, value })
+            })
           }
 
           ensurePreferenceExists(name) {

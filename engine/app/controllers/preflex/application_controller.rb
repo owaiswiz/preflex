@@ -1,4 +1,4 @@
 module Preflex
-  class ApplicationController < ActionController::Base
+  class ApplicationController < Preflex.base_controller_class_for_update
   end
 end
