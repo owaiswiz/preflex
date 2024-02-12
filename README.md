@@ -1,8 +1,13 @@
 # Preflex
+<a href="https://badge.fury.io/rb/preflex"><img src="https://badge.fury.io/rb/preflex.svg" alt="Gem Version" height="18"></a> <img alt="Gem Total Downloads" src="https://img.shields.io/gem/dt/preflex">
 
-A simple but powerful Rails engine for storing preferences, feature flags, etc. With support for reading/writing values client-side!
 
-# Installation
+A simple but powerful Rails engine for storing user preferences, feature flags, etc. With support for reading/writing values client-side!
+
+## Dependency
+Requires Rails 6.1+. (i.e works on Rails 6.1, Rails 7, Rails 7.1, ...)
+
+## Installation
 
 Add `preflex` to your `Gemfile`.
 ```ruby
@@ -20,7 +25,7 @@ bundle exec rails preflex
 ```
 This will generate a create a table to store preferences, generate a dummy initializer file, mount the engine at `/preflex` in your `routes.rb` as well as ask you if you want to create an example preference class.
 
-# Usage
+## Usage
 
 ### Create a preference sub-class
 
