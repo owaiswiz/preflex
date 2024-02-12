@@ -43,7 +43,7 @@ module Preflex
 
             localStorage.setItem(this.localStorageKey, JSON.stringify(this.dataLocal))
             this.updateOnServer(name, value)
-            document.dispatchEvent(new CustomEvent('preflex:preference-updated', { detail: { name, value } }))
+            document.dispatchEvent(new CustomEvent('preflex:preference-updated', { detail: { klass: this.klass, name, value } }))
           }
 
           updateOnServer(name, value) {
