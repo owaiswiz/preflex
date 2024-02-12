@@ -31,7 +31,7 @@ module Preflex
       @preferences.add(name)
 
       store_attribute(:data, name, type, default: default)
-      store_attribute(:data, "#{name}_updated_at_epoch".to_sym, :integer, default: 0)
+      store_attribute(:data, "#{name}_updated_at_epoch".to_sym, :big_integer, default: 0)
     end
 
     def self.current_owner(controller_instance)
@@ -67,7 +67,7 @@ module Preflex
     end
 
     def self.ensure_preference_exists(name)
-      raise "Preference #{name} was not defined. Make sure you define it (e.g. `preference :#{name}, :integer, default: 10`)" unless @preferences&.include?(name)
+      raise "Preference #{name} was not defined. Make sure you define it (e.g. `preference :#{name}, :big_integer, default: 10`)" unless @preferences&.include?(name)
     end
   end
 end
