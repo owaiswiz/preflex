@@ -111,7 +111,7 @@ console.log(UserPreference.get('favorite_colors'))   // => ['orange', 'white']
 ```
 This will update things on the client instantly + also send a request to your server to persit the preference change in the database.
 
-#### Listening to when a preference was updated
+#### Events - Listening to when a preference was updated
 ```js
 document.addEventListener('preflex:preference-updated', (e) => { console.log("Event detail:", e.detail) })
 
@@ -171,7 +171,7 @@ class UserPreference < Preflex::Preference
   preference :playback_rate, :integer, default: 1
 
   def self.current_owner(controller_instance)
-    controller_instance.current_account
+    controller_instance.current_user
   end
 end
 ```
