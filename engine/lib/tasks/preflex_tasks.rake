@@ -1,4 +1,4 @@
-# desc "Explaining what the task does"
-# task :preflex do
-#   # Task goes here
-# end
+desc "Configure preflex"
+task :preflex do
+  system "#{RbConfig.ruby} ./bin/rails app:template LOCATION=#{File.expand_path("../template/install.rb",  __dir__)}"
+end
