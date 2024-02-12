@@ -19,4 +19,5 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_dependency "rails", ">= 7.1.3"
+  spec.add_dependency "store_attribute", ">= 1.1.0"
 end
