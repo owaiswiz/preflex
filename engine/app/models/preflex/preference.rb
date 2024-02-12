@@ -1,5 +1,7 @@
 module Preflex
   class Preference < ApplicationRecord
+    self.store_attribute_unset_values_fallback_to_default = true
+
     store :data, coder: JSON
 
     def get(name)
@@ -44,7 +46,7 @@ module Preflex
     end
 
     def self.for(owner)
-      owner = "#{owner.class}-#{owner.id}" if owner.respond_to?(:id)
+      owner = "#{owner.class.name}-#{owner.id}" if owner.respond_to?(:id)
       PreferenceCache.for(self, owner.to_s)
     end
 
