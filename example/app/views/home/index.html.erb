@@ -1,6 +1,8 @@
 Hi <%= current_user.email %>  <%= current_user.id %><br/>
 
 <%= Preflex::Current.controller_instance.current_user.id %><br/>
-preference autoplay: <%= 'todo' %><br/>
+preference autoplay:      <%= UserPreference.get(:autoplay).to_s %><br/>
 preference playback_rate: <%= UserPreference.get(:playback_rate) %><br/>
-preference theatre_mode: <%= 'todo' %><br/>
+preference theatre_mode:  <%= UserPreference.get(:theatre_mode).to_s %><br/>
+preference call_sign:     <%= UserPreference.get(:call_sign) %><br/>
+<%= @ms %>
