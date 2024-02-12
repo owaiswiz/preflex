@@ -84,7 +84,7 @@ UserPreference.current.get(:playback_rate) #=> 1
 
 Make sure you've specified `current_owner` as described above. And then add this to the head tag in your layout file (e.g app/views/layouts/application.html.erb)
 
-```html
+```erb
 <!-- e.g in app/views/layout/application.html.erb -->
 <html>
   <head>
@@ -93,6 +93,11 @@ Make sure you've specified `current_owner` as described above. And then add this
   </head>
   ...
 </html>
+```
+
+If you've got multiple preference classes, make sure you list them all here when rendering the script tag. e.g:
+```erb
+<%= Preflex::PreferencesHelper.script_tag(UserPreference, FeatureFlags, CustomerSettings) %>
 ```
 
 You'll then be able to read and write values from Javascript like so:
