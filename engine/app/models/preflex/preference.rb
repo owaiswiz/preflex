@@ -20,6 +20,10 @@ module Preflex
       save!
     end
 
+    def data_for_js
+      data.to_json
+    end
+
     def self.preference(name, type, default: nil, private: false)
       name = name.to_sym
 
