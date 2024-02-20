@@ -5,7 +5,7 @@ module Preflex
     isolate_namespace Preflex
 
     initializer 'preflex.set_current_context' do |app|
-      app.config.to_prepare do
+      app.reloader.to_prepare do
         Preflex.base_controller_class.include(Preflex::SetCurrentContext)
         Preflex.base_controller_class_for_update.include(Preflex::SetCurrentContext) unless Preflex.base_controller_class_for_update < Preflex.base_controller_class
       end
