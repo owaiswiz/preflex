@@ -1,7 +1,7 @@
 PATH
   remote: ../engine
   specs:
-    preflex (1.0.0)
+    preflex (1.0.1)
       rails (>= 6.1)
       store_attribute (>= 1.1.0)
 
