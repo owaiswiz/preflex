@@ -3,7 +3,7 @@ module Preflex
     extend self
 
     # PREFLEX_PREFERENCE_JS = File.read(Preferences::Preflex::Engine.root.join("app", "static", "preflex_preference.js"))
-    def script_tag(*preference_klasses)
+    def script_raw(*preference_klasses)
       return ''.html_safe if preference_klasses.empty?
 
       base = <<~JS
@@ -72,7 +72,13 @@ module Preflex
         "window['#{klass.name}'] = new PreflexPreference('#{klass.name}', #{klass.current.data_for_js});"
       end
 
-      "<script>#{js.join("\n")}</script>".html_safe
+      js.join("\n")
+    end
+
+    def script_tag(*preference_klasses)
+      return ''.html_safe if preference_klasses.empty?
+
+      "<script data-turbo-eval=\"false\">#{script_raw(*preference_klasses)}</script>".html_safe
     end
   end
 end
